@@ -121,7 +121,7 @@ namespace RetireNet.Packages.Tool.Services
         public static IEnumerable<string> GetAssetFilesFromSolution(string solutionFile)
         {
             var content = File.ReadAllText(solutionFile);
-            var projReg = new Regex("Project\\(\"\\{[\\w-]*\\}\"\\) = \"([\\w _]*.*)\", \"(.*\\.(cs|vcx|vb)proj)\"", RegexOptions.Compiled);
+            var projReg = new Regex("Project\\(\"\\{[\\w-]*\\}\"\\) = \"([\\w _]*.*)\", \"(.*\\.(cs|vcx|vb|fs)proj)\"", RegexOptions.Compiled);
             var matches = projReg.Matches(content).Cast<Match>();
 
             if (matches.Any())
